@@ -1,3 +1,5 @@
+package animals;
+
 public class Dog extends Animals {
     private static int MAX_RUN_DISTANCE = 500;
     private static int MAX_SWIM_DISTANCE = 10;
@@ -14,19 +16,19 @@ public class Dog extends Animals {
 
     @Override
     public void run(int distance) {
-        if (0 <= distance && distance <= MAX_RUN_DISTANCE) {
-            System.out.println(name + " пробежал " + distance + "м");
+        if (distance >= 0 && distance <= MAX_RUN_DISTANCE) {
+            System.out.println(String.format(runDist, name, distance));
         } else {
-            System.out.println(name + " не может пробежать такое расстояние!");
+            System.out.println(String.format(errorRunDist, name));
         }
     }
 
     @Override
     public void swim(int distance) {
-        if (0 <= distance && distance <= MAX_SWIM_DISTANCE) {
-            System.out.println(name + " проплыл " + distance + "м");
+        if (distance >= 0 && distance <= MAX_SWIM_DISTANCE) {
+            System.out.println(String.format(swimDist, name, distance));
         } else {
-            System.out.println(name + " не может проплыть такое расстояние!");
+            System.out.println(String.format(errorSwimDist, name));
         }
     }
 }

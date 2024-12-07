@@ -1,3 +1,5 @@
+package animals;
+
 public class Cat extends Animals {
     private static int MAX_RUN_DISTANCE = 200;
     static int count = 0;
@@ -13,10 +15,10 @@ public class Cat extends Animals {
 
     @Override
     public void run(int distance) {
-        if (0 <= distance && distance <= MAX_RUN_DISTANCE) {
-            System.out.println(name + " пробежал " + distance + "м");
+        if (distance >= 0 && distance <= MAX_RUN_DISTANCE) {
+            System.out.println(String.format(runDist, name, distance));
         } else {
-            System.out.println(name + " не может пробежать такое расстояние!");
+            System.out.println(String.format(errorRunDist, name));
         }
     }
 
