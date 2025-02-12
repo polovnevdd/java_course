@@ -16,8 +16,6 @@ public class Product {
         this.date = date;
     }
 
-//comment
-
     public String getType() {
         return type;
     }
