@@ -24,6 +24,9 @@ public class Main {
         System.out.println(StreamApiService.getLastTreeProducts(products));
         System.out.println(StreamApiService.sumOfProducts(products));
         System.out.println("{");
+
+        //
+
         for (Map.Entry<String, List<Product>> entry : StreamApiService.groupByType(products).entrySet()) {
             System.out.println("  \"" + entry.getKey() + "\": [");
             for (Product product : entry.getValue()) {
