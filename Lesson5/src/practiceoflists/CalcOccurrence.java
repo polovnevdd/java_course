@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class CalcOccurrence {
+public class   CalcOccurrence {
     public static void calcOccurrence(List<String> list) {
         List<String> newList = new ArrayList<>();
         for (String animal : list) {
