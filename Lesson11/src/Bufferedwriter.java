@@ -14,7 +14,7 @@ public class Bufferedwriter {
             e.printStackTrace();
         }
         try {
-            File bookPath = new File("Lesson11/resources/test_book.txt");
+            File bookPath = new File("Lesson11/resources/test.txt");
             String content = Files.readString(bookPath.toPath());
             System.out.println(content);
         } catch (IOException e) {
