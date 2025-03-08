@@ -1,6 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+package textparser;
+
+import textparser.utils.Parser;
+import textparser.utils.SerializeUtils;
 
 public class ParsingApp {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class ParsingApp {
         Parser parser = new Parser();
         SerializeUtils serializeUtils = new SerializeUtils();
         String worlds[] = serializeUtils.readFile().toLowerCase().split("\\W+");
-        System.out.println(parser.countUniqWorlds(worlds));
-        serializeUtils.writeStatistics(parser.takeTenCountWorlds(worlds),parser.countUniqWorlds(worlds));
+        System.out.println(parser.countUniqueWorlds(worlds));
+        serializeUtils.writeStatistics(parser.takeTenCountWorlds(worlds),parser.countUniqueWorlds(worlds));
     }
 }

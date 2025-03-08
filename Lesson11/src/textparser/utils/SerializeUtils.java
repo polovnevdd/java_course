@@ -1,3 +1,5 @@
+package textparser.utils;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +18,7 @@ public class SerializeUtils {
         }
     }
 
-    public void writeStatistics(Map<String, Integer> listOfWords, int uniqWords) {
+    public void writeStatistics(Map<String, Integer> listOfWords, int uniqueWords) {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("Lesson11/resources/test_book_statistic.txt"))) {
             for (Map.Entry<String, Integer> entry : listOfWords.entrySet()) {
                 writer.write(entry.getKey() + " -> " + entry.getValue());
@@ -24,7 +26,7 @@ public class SerializeUtils {
             }
             writer.newLine();
             writer.newLine();
-            writer.write("Uniq Words: " + uniqWords);
+            writer.write("Unique Words: " + uniqueWords);
         } catch (IOException e) {
             e.printStackTrace();
         }

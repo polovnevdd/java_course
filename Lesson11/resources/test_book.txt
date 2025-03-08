@@ -2,4 +2,4 @@ This is a test text to check the program's functionality.
 The program analyzes the text and determines the most frequently occurring words.  
 Words shorter than three characters are not considered.  
 The program should work efficiently and without errors.  
-Test, test, test – check, check, check!  
+Test, test, test – check, check, check!
