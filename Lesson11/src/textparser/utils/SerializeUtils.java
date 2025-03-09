@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
@@ -23,7 +24,8 @@ public class SerializeUtils {
     }
 
     public void writeStatistics(Map<String, Integer> listOfWords, int uniqueWords, String bookname) {
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("Lesson11/resources/" + bookname + "_statistic.txt"))) {
+        Path path = Paths.get("Lesson11/resources/" + bookname + "_statistic.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Map.Entry<String, Integer> entry : listOfWords.entrySet()) {
                 writer.write(entry.getKey() + " -> " + entry.getValue());
                 writer.newLine();
