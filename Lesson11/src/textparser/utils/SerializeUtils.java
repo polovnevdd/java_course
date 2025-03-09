@@ -8,9 +8,13 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class SerializeUtils {
-    public String readFile() {
+    public String readFile(String bookName) {
         try {
-            File bookPath = new File("Lesson11/resources/test_book.txt");
+            File bookPath = new File("Lesson11/resources/" + bookName + ".txt");
+            if (!Files.exists(bookPath.toPath())) {
+                System.out.println("Книга не знайдена у директорії src/");
+                return null;
+            }
             return Files.readString(bookPath.toPath());
         } catch (IOException e) {
             e.printStackTrace();
@@ -18,8 +22,8 @@ public class SerializeUtils {
         }
     }
 
-    public void writeStatistics(Map<String, Integer> listOfWords, int uniqueWords) {
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("Lesson11/resources/test_book_statistic.txt"))) {
+    public void writeStatistics(Map<String, Integer> listOfWords, int uniqueWords, String bookname) {
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("Lesson11/resources/" + bookname + "_statistic.txt"))) {
             for (Map.Entry<String, Integer> entry : listOfWords.entrySet()) {
                 writer.write(entry.getKey() + " -> " + entry.getValue());
                 writer.newLine();
