@@ -6,8 +6,8 @@ public class Calculator {
     }
 
     private void run(String[] args) {
-        float firstNum = Integer.parseInt(args[0]);
-        float secondNum = Integer.parseInt(args[1]);
+        float firstNum = Float.parseFloat(args[0]);
+        float secondNum = Float.parseFloat(args[1]);
         String operator = args[2];
         switch (operator) {
             case "+":
