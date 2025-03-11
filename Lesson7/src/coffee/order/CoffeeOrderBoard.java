@@ -2,7 +2,6 @@ package coffee.order;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class CoffeeOrderBoard {
     private List<Order> orders;
     private int orderNumber = 1;

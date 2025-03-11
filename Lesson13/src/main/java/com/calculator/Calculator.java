@@ -9,6 +9,7 @@ public class Calculator {
         float firstNum = Float.parseFloat(args[0]);
         float secondNum = Float.parseFloat(args[1]);
         String operator = args[2];
+        System.out.println(operator);
         switch (operator) {
             case "+":
                 printResult(firstNum + secondNum);
@@ -19,7 +20,7 @@ public class Calculator {
             case "/":
                 printResult(firstNum / secondNum);
                 break;
-            case "*":
+            case "x":
                 printResult(firstNum * secondNum);
                 break;
             default:
