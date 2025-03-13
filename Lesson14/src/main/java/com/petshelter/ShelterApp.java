@@ -5,7 +5,6 @@ import com.petshelter.model.Menu;
 import com.petshelter.service.AnimalSerializer;
 import com.petshelter.service.ShelterManager;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,16 +14,19 @@ public class ShelterApp {
     }
 
     private static void runApp() {
-        List<Animal> listOfAnimal = new ArrayList<>();
         ShelterManager shelterManager = new ShelterManager();
+        AnimalSerializer animalSerializer = new AnimalSerializer();
+        List<Animal> listOfAnimal = animalSerializer.deserialize();
+        int petNum = listOfAnimal.get(listOfAnimal.size() - 1).getNum() + 1;
         Scanner scanner = new Scanner(System.in);
         while (true) {
             showMenu();
             String choice = scanner.nextLine();
             switch (choice.toLowerCase()) {
                 case "add pet":
-                    shelterManager.addPet(listOfAnimal);
+                    shelterManager.addPet(listOfAnimal, petNum);
                     System.out.println("Питомец добавлен в приют!");
+                    petNum++;
                     break;
                 case "show all":
                     System.out.println("Список всех питомцев в приюте:");
@@ -34,7 +36,6 @@ public class ShelterApp {
                     shelterManager.takePet(listOfAnimal);
                     break;
                 case "exit":
-                    AnimalSerializer animalSerializer = new AnimalSerializer();
                     animalSerializer.serialize(shelterManager.getListOfPets(listOfAnimal));
                     System.out.println("Выход");
                     return;

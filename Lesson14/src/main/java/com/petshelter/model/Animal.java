@@ -6,10 +6,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Animal {
-    int num;
-    String name;
-    String type;
-    int age;
+    public int num;
+    public String name;
+    public String type;
+    public int age;
+
+    public Animal() {
+    }
 
     public Animal(int num, String name, String type, int age) {
         this.num = num;

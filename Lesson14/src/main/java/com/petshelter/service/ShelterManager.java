@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ShelterManager {
-    int petNum = 1;
 
-    public void addPet(List<Animal> listOfPets) {
+    public void addPet(List<Animal> listOfPets, int petNum) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя:");
         String petName = scanner.nextLine();
@@ -17,7 +16,6 @@ public class ShelterManager {
         System.out.println("Введите возраст:");
         int petAge = scanner.nextInt();
         listOfPets.add(new Animal(petNum, petName, petType, petAge));
-        petNum++;
     }
 
     public void showAll(List<Animal> listOfPets) {
@@ -30,11 +28,7 @@ public class ShelterManager {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите номер питомца, которого хотите забрать:");
         int petNum = scanner.nextInt();
-        for (Animal pet : listOfPets) {
-            if (pet.getNum() == petNum) {
-                listOfPets.remove(pet);
-            }
-        }
+        listOfPets.removeIf(pet -> pet.getNum() == petNum);
     }
 
     public List<Animal> getListOfPets(List<Animal> listOfPets) {

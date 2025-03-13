@@ -7,6 +7,7 @@ import com.petshelter.model.Animal;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AnimalSerializer {
@@ -19,15 +20,16 @@ public class AnimalSerializer {
         }
     }
 
-    public List<Animal> deserialize(List<Animal> animal) {
+    public List<Animal> deserialize() {
         ObjectMapper mapper = new ObjectMapper();
-        List<Animal> listOfAnimals = new ArrayList<>();
+        //List<Animal> listOfAnimals = new ArrayList<>();
         try {
-            return listOfAnimals = mapper.readValue(new File("Lesson14/src/main/resources/animal.json"), new TypeReference<List<Animal>>() {
-            });
+            return mapper.readValue(new File("Lesson14/src/main/resources/animal.json"), new TypeReference<List<Animal>>() {
+                    }
+            );
         } catch (IOException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
-        return null;
     }
 }
