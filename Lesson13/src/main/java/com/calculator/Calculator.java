@@ -3,6 +3,7 @@ package com.calculator;
 public class Calculator {
     public static void main(String[] args) {
         new Calculator().run(args);
+        Car car = new Car();
     }
 
     private void run(String[] args) {
