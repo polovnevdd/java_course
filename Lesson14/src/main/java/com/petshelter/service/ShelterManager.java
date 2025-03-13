@@ -9,11 +9,11 @@ public class ShelterManager {
 
     public void addPet(List<Animal> listOfPets, int petNum) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имя:");
+        System.out.print("Введите имя: ");
         String petName = scanner.nextLine();
-        System.out.println("Введите тип питомца:");
+        System.out.print("Введите тип питомца: ");
         String petType = scanner.nextLine();
-        System.out.println("Введите возраст:");
+        System.out.print("Введите возраст: ");
         int petAge = scanner.nextInt();
         listOfPets.add(new Animal(petNum, petName, petType, petAge));
     }
@@ -26,7 +26,7 @@ public class ShelterManager {
 
     public void takePet(List<Animal> listOfPets) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите номер питомца, которого хотите забрать:");
+        System.out.print("Введите номер питомца, которого хотите забрать: ");
         int petNum = scanner.nextInt();
         listOfPets.removeIf(pet -> pet.getNum() == petNum);
     }

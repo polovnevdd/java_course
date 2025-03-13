@@ -20,27 +20,32 @@ public class ShelterApp {
         int petNum = listOfAnimal.get(listOfAnimal.size() - 1).getNum() + 1;
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            System.out.println("Меню:");
             showMenu();
+            System.out.print("Выберите пункт меню: ");
             String choice = scanner.nextLine();
-            switch (choice.toLowerCase()) {
-                case "add pet":
+            Menu menuChoice = Menu.getByDescription(choice);
+            if(menuChoice == null) {
+                System.out.println("Неправильный выбор");
+            }
+
+            switch (menuChoice) {
+                case ADD_PET:
                     shelterManager.addPet(listOfAnimal, petNum);
                     System.out.println("Питомец добавлен в приют!");
                     petNum++;
                     break;
-                case "show all":
+                case SHOW_ALL:
                     System.out.println("Список всех питомцев в приюте:");
                     shelterManager.showAll(listOfAnimal);
                     break;
-                case "take pet":
+                case TAKE_PET:
                     shelterManager.takePet(listOfAnimal);
                     break;
-                case "exit":
+                case EXIT:
                     animalSerializer.serialize(shelterManager.getListOfPets(listOfAnimal));
                     System.out.println("Выход");
                     return;
-                default:
-                    System.out.println("Неправильный выбор");
             }
             System.out.println();
         }
