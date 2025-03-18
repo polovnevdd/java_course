@@ -17,8 +17,7 @@ public class Client {
             client.giveMessageToServer(scanner, input, output);
             input.close();
             output.close();
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -40,7 +39,7 @@ public class Client {
             System.out.print("Введите сообщение для сервера (или 'exit' для выхода): ");
             String messageToSend = scanner.nextLine();
 
-            if (messageToSend.equals("exit")) {
+            if (isExit(messageToSend)) {
                 break;
             }
 
@@ -48,5 +47,9 @@ public class Client {
             client.getMessageFromServer(input);
 
         }
+    }
+
+    private boolean isExit(String messageToSend) {
+        return messageToSend.equals("exit");
     }
 }

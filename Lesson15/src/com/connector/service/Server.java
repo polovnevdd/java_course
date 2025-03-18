@@ -37,7 +37,7 @@ public class Server {
 
     private void isClientNotRussion(String line, BufferedReader input, PrintWriter output) throws IOException {
         ServerManager serverManager = new ServerManager();
-        if (serverManager.PerevirkaNaKozaka(line) != true) {
+        if (serverManager.perevirkaNaKozaka(line) != true) {
             output.println("Що таке паляниця?");
             line = input.readLine();
             if (line.toLowerCase().equals("хлеб")) {
