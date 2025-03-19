@@ -22,15 +22,16 @@ public class Client {
         }
     }
 
-    private void getMessageFromServer(BufferedReader reader) {
+    private boolean getMessageFromServer(BufferedReader reader) {
         String message;
         try {
-            if ((message = reader.readLine()) != null) {
+            if((message = reader.readLine()) != null) {
                 System.out.println("Сообщение от сервера: " + message);
             }
         } catch (IOException e) {
-            System.out.println("Ошибка при получении сообщения: " + e.getMessage());
+            return true;
         }
+        return true;
     }
 
     private void giveMessageToServer(Scanner scanner, BufferedReader input, PrintWriter output) {
@@ -38,14 +39,11 @@ public class Client {
         while (true) {
             System.out.print("Введите сообщение для сервера (или 'exit' для выхода): ");
             String messageToSend = scanner.nextLine();
-
-            if (isExit(messageToSend)) {
+            if (isExit(messageToSend) ) {
                 break;
             }
-
             output.println(messageToSend);
             client.getMessageFromServer(input);
-
         }
     }
 
