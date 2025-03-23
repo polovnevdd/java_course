@@ -16,7 +16,6 @@ public class Game {
     private String description;
     private String type;
     private LocalDateTime creationDate;
-//dasd
 
     public Game(String name, Date releaseDate, Float rating, Float cost, String description, String type) {
         this.name = name;
