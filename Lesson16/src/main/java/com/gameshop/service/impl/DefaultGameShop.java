@@ -5,48 +5,45 @@ import com.gameshop.dao.impl.DefaultGameShopDao;
 import com.gameshop.model.Game;
 import com.gameshop.service.GameShop;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class DefaultGameShop implements GameShop {
     GameShopDao gameShopDao = new DefaultGameShopDao();
 
     @Override
-    public void add() {
-        gameShopDao.add();
+    public void add(Game game) {
+        gameShopDao.add(game);
     }
 
     @Override
-    public void delete() {
-        gameShopDao.delete();
+    public void delete(int id) {
+        gameShopDao.delete(id);
     }
 
     @Override
-    public List<Game> showByName() {
-        gameShopDao.showByName();
-        return null;
+    public Game showByName(String name) {
+        return gameShopDao.showByName(name);
     }
 
     @Override
-    public List<Game> filterByPrice() {
-        gameShopDao.filterByPrice();
-        return null;
+    public List<Game> filterByPrice(float price) {
+        return gameShopDao.filterByPrice(price);
     }
 
     @Override
-    public List<Game> filterByType() {
-        gameShopDao.filterByType();
-        return null;
+    public List<Game> filterByType(String type) {
+        return gameShopDao.filterByType(type);
     }
 
     @Override
     public List<Game> showByDate() {
-        gameShopDao.showByDate();
-        return null;
+        return gameShopDao.showByDate();
     }
 
     @Override
     public List<Game> showAll() {
-        gameShopDao.showAll();
-        return null;
+        return gameShopDao.showAll();
     }
 }

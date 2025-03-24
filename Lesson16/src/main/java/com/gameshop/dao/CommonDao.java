@@ -12,16 +12,18 @@ public class CommonDao {
 
     private static final String DB_PASSWORD = "root";
 
-    protected Connection getConnection()
-    {
-        try
-        {
-            return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+    Connection connection = null;
+
+    protected Connection getConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                return connection;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-            return null;
-        }
+        return connection;
     }
 }

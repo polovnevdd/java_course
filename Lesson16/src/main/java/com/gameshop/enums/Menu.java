@@ -1,4 +1,4 @@
-package com.gameshop;
+package com.gameshop.enums;
 
 public enum Menu {
     ADD_GAME("ADD_GAME"),
@@ -16,12 +16,12 @@ public enum Menu {
         this.description = description;
     }
 
-    String getDescription(){
+    public String getDescription() {
         return description;
     }
 
     static public Menu getByDescription(String description) {
-        for(Menu value : Menu.values()) {
+        for (Menu value : Menu.values()) {
             if (description.equals(value.getDescription())) {
                 return value;
             }
