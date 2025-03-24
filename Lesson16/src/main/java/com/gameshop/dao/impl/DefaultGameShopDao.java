@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DefaultGameShopDao extends CommonDao implements GameShopDao {
     private Connection conn = getConnection();
-    ;
+
     private static final String ADD_GAME = "INSERT INTO games (NAME, RELEASE_DATE, RATING, COST, DESCRIPTION, TYPE) VALUES(?,?,?,?,?,?)";
     private static final String SHOW_ALL = "SELECT * FROM games";
     private static final String DELETE_GAME = "DELETE FROM games WHERE id = ?";
