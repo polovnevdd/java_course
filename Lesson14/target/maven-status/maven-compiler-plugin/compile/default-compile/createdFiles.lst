@@ -1,0 +1,3 @@
+com\petshelter\model\Animal.class
+com\petshelter\service\AnimalSerializer.class
+com\petshelter\model\Menu.class

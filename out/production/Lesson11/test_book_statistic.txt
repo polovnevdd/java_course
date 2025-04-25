@@ -1,0 +1,13 @@
+the -> 5
+test -> 4
+check -> 4
+program -> 3
+and -> 2
+text -> 2
+words -> 2
+frequently -> 1
+considered -> 1
+determines -> 1
+
+
+Unique Words: 19

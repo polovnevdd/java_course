@@ -1,0 +1,6 @@
+This is a sample text designed to assess the program's ability to process and analyze written content.
+The program is expected to accurately identify the most frequent words within the text, excluding any words with fewer than three characters.
+It should efficiently handle large amounts of data and perform the analysis without encountering any errors or delays.
+The primary goal is to test the accuracy of word frequency detection and ensure that the program operates smoothly, even when faced with complex sentences or varied vocabulary.
+In addition to counting word occurrences, the program should also take into account punctuation marks and special characters, treating them as distinct elements that may impact the results.
+Test, analyze, process – repeat, refine, and improve!
