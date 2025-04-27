@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -32,6 +33,18 @@ public class OrderController {
     public ResponseEntity<List<ProductDto>> getProductByName(@PathVariable("productName") String productName) {
         List<ProductDto> products = productService.getProductByName(productName);
         return ResponseEntity.status(HttpStatus.OK).body(products);
+    }
+
+    @GetMapping("/order/before/{dateTime}")
+    public ResponseEntity<List<OrderDto>> getOrderBeforeTime(@PathVariable("dateTime") LocalDateTime dateTime){
+        List<OrderDto> orders = orderService.getOrdersBeforeDate(dateTime);
+        return ResponseEntity.status(HttpStatus.OK).body(orders);
+    }
+
+    @GetMapping("/orders/product/{name}")
+    public ResponseEntity<List<OrderDto>> getOrderByProduct(@PathVariable("name") String name){
+        List<OrderDto> orders = orderService.getOrdersByName(name);
+        return ResponseEntity.status(HttpStatus.OK).body(orders);
     }
 
     @PostMapping("/order")

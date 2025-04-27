@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +29,18 @@ public class DefaultOrderService implements OrderService {
     public OrderDto getOrder(Integer orderId) {
         Optional<Order> foundOrderOptional = orderRepository.findById(orderId);
         return foundOrderOptional.map(orderMapper::toOrderDto).orElse(null);
+    }
+
+    @Override
+    public List<OrderDto> getOrdersBeforeDate(LocalDateTime dateTime) {
+        List<Order> orders = orderRepository.findAllByCreateDateBefore(dateTime);
+        return orders.stream().map(orderMapper::toOrderDto).toList();
+    }
+
+    @Override
+    public List<OrderDto> getOrdersByName(String name) {
+        List<Order> orders = orderRepository.findOrdersByProductNameLike(name);
+        return orders.stream().map(orderMapper::toOrderDto).toList();
     }
 
     @Override
